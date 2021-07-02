@@ -19,97 +19,106 @@ namespace RookieAssignment.Backend.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.Category", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Data.Migrations.MenuItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("RookieAssignment.Backend.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Spicyness")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("MenuItem");
                 });
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.ProductReview", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Review")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductReviews");
+                    b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.Product", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Models.MenuItemComment", b =>
                 {
-                    b.HasOne("RookieAssignment.Backend.Models.Category", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MenuItemId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuItemId");
+
+                    b.ToTable("MenuItemComment");
                 });
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.ProductReview", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Data.Migrations.MenuItem", b =>
                 {
-                    b.HasOne("RookieAssignment.Backend.Models.Product", null)
-                        .WithMany("ProductReviews")
-                        .HasForeignKey("ProductId");
+                    b.HasOne("RookieAssignment.Backend.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.Category", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Models.MenuItemComment", b =>
                 {
-                    b.Navigation("Products");
+                    b.HasOne("RookieAssignment.Backend.Data.Migrations.MenuItem", "MenuItem")
+                        .WithMany("MenuItemComments")
+                        .HasForeignKey("MenuItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuItem");
                 });
 
-            modelBuilder.Entity("RookieAssignment.Backend.Models.Product", b =>
+            modelBuilder.Entity("RookieAssignment.Backend.Data.Migrations.MenuItem", b =>
                 {
-                    b.Navigation("ProductReviews");
+                    b.Navigation("MenuItemComments");
                 });
 #pragma warning restore 612, 618
         }

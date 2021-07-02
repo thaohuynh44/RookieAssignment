@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RookieAssignment.Backend.Data.Migrations;
 using RookieAssignment.Backend.Models;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace RookieAssignment.Backend.Data
 
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<ProductReview> ProductReviews { get; set; }
+        public DbSet<MenuItem> MenuItem { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<MenuItemComment> MenuItemComment { get; set; }
     }
 }

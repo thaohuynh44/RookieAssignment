@@ -4,15 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RookieAssignment.Backend.Models
+namespace RookieAssignment.Backend.Models.DTOs
 {
-    public class ProductReview
+    public class CategoryDTO
     {
-        [Key]
         public int Id { get; set; }
-        
+
         [Required]
-        public int Rating { get; set; }
-        public string Review { get; set; }
+        public string Name { get; set; }
     }
 }
