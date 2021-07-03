@@ -61,3 +61,5 @@ C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssign
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Backend\obj\Debug\net5.0\RookieAssignment.Backend.genruntimeconfig.cache
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Backend\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Backend\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Backend\bin\Debug\net5.0\RookieAssignment.Shared.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Backend\bin\Debug\net5.0\RookieAssignment.Shared.pdb

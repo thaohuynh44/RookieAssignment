@@ -1,12 +1,11 @@
-﻿using RookieAssignment.Backend.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RookieAssignment.Backend.Data.Migrations
+namespace RookieAssignment.Backend.Models
 {
     public class MenuItem
     {
@@ -16,8 +15,6 @@ namespace RookieAssignment.Backend.Data.Migrations
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
-
-        public string Spicyness { get; set; }
 
         public string Image { get; set; }
 

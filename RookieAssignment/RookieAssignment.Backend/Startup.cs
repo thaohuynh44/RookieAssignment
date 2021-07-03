@@ -10,8 +10,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RookieAssignment.Backend.Data;
 using RookieAssignment.Backend.Mapper;
-using RookieAssignment.Backend.Repository;
-using RookieAssignment.Backend.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +32,6 @@ namespace RookieAssignment.Backend
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddAutoMapper(typeof(Mapping));
             services.AddSwaggerGen(c =>
             {

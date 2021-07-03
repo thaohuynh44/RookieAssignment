@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RookieAssignment.Backend.Data.Migrations;
 using RookieAssignment.Backend.Models;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RookieAssignment.Backend.Models;
-using RookieAssignment.Backend.Models.DTOs;
+using RookieAssignment.Shared.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,8 @@ namespace RookieAssignment.Backend.Mapper
         public Mapping()
         {
             CreateMap<Category, CategoryDTO>().ReverseMap();
+            CreateMap<MenuItem, MenuItemDTO>().ReverseMap();
+            CreateMap<MenuItemComment, MenuItemCommentDTO>().ReverseMap();
         }
     }
 }

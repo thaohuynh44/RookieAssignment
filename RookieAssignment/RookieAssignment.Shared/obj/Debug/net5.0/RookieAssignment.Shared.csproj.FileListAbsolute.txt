@@ -1,0 +1,12 @@
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\bin\Debug\net5.0\RookieAssignment.Shared.deps.json
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\bin\Debug\net5.0\RookieAssignment.Shared.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\bin\Debug\net5.0\ref\RookieAssignment.Shared.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\bin\Debug\net5.0\RookieAssignment.Shared.pdb
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.AssemblyInfoInputs.cache
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.AssemblyInfo.cs
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\ref\RookieAssignment.Shared.dll
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.pdb
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.Shared\obj\Debug\net5.0\RookieAssignment.Shared.csprojAssemblyReference.cache
