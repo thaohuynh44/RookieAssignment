@@ -17,17 +17,20 @@ namespace RookieAssignment.CustomerSite.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
+        private readonly IMenuItemService _menuItemService;
 
-        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService)
+        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, IMenuItemService menuItemService)
         {
             _logger = logger;
             this._categoryService = categoryService;
+            this._menuItemService = menuItemService;
         }
 
         public async Task<IActionResult> Index()
         {
             IndexViewModel indexVm = new IndexViewModel()
             {
+                MenuItem = await _menuItemService.GetAllAsync(Constant.menuItemAPIPath),
                 Category = await _categoryService.GetAllAsync(Constant.categoryAPIPath)
             };
             return View(indexVm);

@@ -4,12 +4,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @foreach(var item in Model.Category)
-    {
-        
-    }
+<div class="text-center container-fluid">
+    <h1 class="display-3">Welcome</h1>
+    <h2 class="display-4">Rookie Coffee Shop</h2>
+</div>
 
+<br /> <br />
+
+<div class="backgroundWhite container">
+    @foreach(var category in Model.Category)
+    {
+        <div class="row" id="menu-wrapper">
+            <partial name="_ThumbnailPartial" model="@Model.MenuItem.Where(u=>u.Category.Name.Equals(category.Name))" />
+        </div>
+    }
 </div>

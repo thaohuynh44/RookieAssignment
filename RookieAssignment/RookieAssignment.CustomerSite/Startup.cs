@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RookieAssignment.CustomerSite.Data;
+using RookieAssignment.CustomerSite.Service;
 using RookieAssignment.CustomerSite.Service.IService;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace RookieAssignment.CustomerSite
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IMenuItemService, MenuItemService>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddHttpClient();
         }
