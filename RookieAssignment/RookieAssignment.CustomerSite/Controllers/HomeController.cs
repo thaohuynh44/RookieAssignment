@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RookieAssignment.CustomerSite.Models;
+using RookieAssignment.CustomerSite.Service;
+using RookieAssignment.CustomerSite.Service.IService;
+using RookieAssignment.Shared.DTOs;
+using RookieAssignment.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,15 +16,21 @@ namespace RookieAssignment.CustomerSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICategoryService _categoryService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService)
         {
             _logger = logger;
+            this._categoryService = categoryService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IndexViewModel indexVm = new IndexViewModel()
+            {
+                Category = await _categoryService.GetAllAsync(Constant.categoryAPIPath)
+            };
+            return View(indexVm);
         }
 
         public IActionResult Privacy()
