@@ -3,36 +3,24 @@
 
 @if(Model.Count() > 0)
 {
-    <div class="col-12">
+    <div class="col-12 elements @Model.FirstOrDefault().Category.Name.Replace(" ",string.Empty)">
         <div class="row">
-            <h3 class="text-success">@Model.FirstOrDefault().Category.Name</h3>
+            <h3 class="text-success my-4">@Model.FirstOrDefault().Category.Name</h3>
         </div>
-        
-        @*@foreach(var item in Model)
-        {
-            <div class="border border-info rounded col-12" style="margin-top:10px; margin-bottom:10px; padding:10px;">
-                <div class="row">
-                    <div class="col-md-3 col-sm-12">
-                        <img src="@item.Image" style="border-radius:5px; border: 1px solid #bbb9b9; width:250px;" />
-                    </div>
-                    <div class="col-md-9 col-sm-12">
 
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="card mr-3 mb-3">
+                    <img class="card-img-top" src="@item.Image" style="border-radius:5px; border: 1px solid #bbb9b9; width:250px;" />
+                    <div class="card-body text-center">
+                        <h4 class="card-title">@item.Name</h4>
+                        <p class="card-text"><span>@item.Price</span>&nbsp; VND</p>
+                        <a asp-action="Details" class="btn btn-info form-control" asp-route-id="@item.Id">Detail</a>
                     </div>
                 </div>
-            </div>
-        }*@
-    <div class="row">
-        @foreach(var item in Model)
-        {
-        <div class="card">
-            <img class="card-img-top" src="@item.Image" style="border-radius:5px; border: 1px solid #bbb9b9; width:250px;" />
-            <div class="card-body">
-                <h4 class="card-title">@item.Name</h4>
-                <p class="card-text">Dddddddddddddddddddd</p>
-            </div>
+            }
         </div>
-        }
-    </div>
     </div>
 
 }

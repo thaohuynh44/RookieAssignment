@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Home Page";
+
 }
 
 <div class="text-center container-fluid">
@@ -12,10 +13,41 @@
 <br /> <br />
 
 <div class="backgroundWhite container">
+    <ul id="menu-filters" class="filter-list list-inline text-center">
+        <li class="filter active btn btn-outline-primary m-1" data-filter="all">Show All</li>
+
+        @foreach (var item in Model.Category)
+        {
+            <li class="filter btn btn-outline-primary m-1" data-filter="@item.Name.Replace(" ",string.Empty)">@item.Name</li>
+        }
+    </ul>
+
+
     @foreach(var category in Model.Category)
     {
         <div class="row" id="menu-wrapper">
             <partial name="_ThumbnailPartial" model="@Model.MenuItem.Where(u=>u.Category.Name.Equals(category.Name))" />
         </div>
     }
+
 </div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script>
+        $("#menu-filters li").click(function () {
+            $("#menu-filters li").removeClass("active");
+            $(this).addClass("active");
+
+            var dataFilter = $(this).data('filter');
+            if (dataFilter == "all") {
+                $(".elements").show();
+            } else {
+                $(".elements").hide();
+                $("." + dataFilter).show();
+            }
+        });   
+    </script>
+
+}
