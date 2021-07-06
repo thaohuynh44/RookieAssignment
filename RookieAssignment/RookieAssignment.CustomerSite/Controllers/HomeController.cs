@@ -18,12 +18,14 @@ namespace RookieAssignment.CustomerSite.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
         private readonly IMenuItemService _menuItemService;
+        private readonly IMenuItemCommentService _menuItemCommentService;
 
-        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, IMenuItemService menuItemService)
+        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, IMenuItemService menuItemService, IMenuItemCommentService menuItemCommentService)
         {
             _logger = logger;
             this._categoryService = categoryService;
             this._menuItemService = menuItemService;
+            this._menuItemCommentService = menuItemCommentService;
         }
 
         public async Task<IActionResult> Index()
@@ -35,6 +37,21 @@ namespace RookieAssignment.CustomerSite.Controllers
             };
             return View(indexVm);
         }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            //var menuItem = await _menuItemService.GetAsync(Constant.menuItemAPIPath, id);
+            //return View(menuItem);
+
+            DetailViewModel detailVM = new DetailViewModel()
+            {
+                menuItem = await _menuItemService.GetAsync(Constant.menuItemAPIPath, id),
+                listMenuItemComments = await _menuItemCommentService.GetAllAsyncByParentId(Constant.menuItemCommentAPIPath, id)
+            };
+
+            return View(detailVM);
+        }
+
 
         public IActionResult Privacy()
         {

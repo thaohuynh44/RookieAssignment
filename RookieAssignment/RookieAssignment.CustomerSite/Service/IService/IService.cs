@@ -9,5 +9,7 @@ namespace RookieAssignment.CustomerSite.Service
     {
         Task<T> GetAsync(string url, int Id);
         Task<IEnumerable<T>> GetAllAsync(string url);
+        Task<IEnumerable<T>> GetAllAsyncByParentId(string url, int id);
+        Task<bool> CreateAsync(string url, T objToCreate);
     }
 }

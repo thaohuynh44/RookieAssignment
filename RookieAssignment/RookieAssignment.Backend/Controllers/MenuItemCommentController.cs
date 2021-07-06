@@ -37,15 +37,17 @@ namespace RookieAssignment.Backend.Controllers
             return Ok(objDTO);
         }
 
-        [HttpGet("{menuItemCommentId}")]
-        public async Task<IActionResult> GetMenuItemComment(int menuItemCommentId)
+        
+        [HttpGet("{menuItemId}")]
+        public async Task<IActionResult> GetMenuItemComment(int menuItemId)
         {
-            var obj = await _db.MenuItemComment.FirstOrDefaultAsync(m => m.Id == menuItemCommentId);
-            if (obj == null)
+            var objList = await _db.MenuItemComment.Where(m => m.MenuItemId == menuItemId).ToListAsync();
+            var objDTO = new List<MenuItemCommentDTO>();
+            foreach (var obj in objList)
             {
-                return NotFound();
+                objDTO.Add(_mapper.Map<MenuItemCommentDTO>(obj));
             }
-            var objDTO = _mapper.Map<MenuItemCommentDTO>(obj);
+            
             return Ok(objDTO);
         }
 
@@ -61,7 +63,8 @@ namespace RookieAssignment.Backend.Controllers
             _db.MenuItemComment.Add(menuItemCommentObj);
             await _db.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetMenuItemComment), new { menuItemCommentId = menuItemCommentObj.Id }, menuItemCommentObj);
+            //return CreatedAtAction(nameof(GetMenuItemComment), new { menuItemCommentId = menuItemCommentObj.Id }, menuItemCommentObj);
+            return Created();
         }
 
         [HttpPut("{menuItemCommentId}")]

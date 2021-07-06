@@ -38,6 +38,7 @@ namespace RookieAssignment.CustomerSite
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IMenuItemService, MenuItemService>();
+            services.AddScoped<IMenuItemCommentService, MenuItemCommentService>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddHttpClient();
         }

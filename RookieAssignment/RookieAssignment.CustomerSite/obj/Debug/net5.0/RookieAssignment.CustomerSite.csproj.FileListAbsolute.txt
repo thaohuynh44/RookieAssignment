@@ -439,3 +439,5 @@ C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssign
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.CustomerSite\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.CustomerSite\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.CustomerSite\obj\Debug\net5.0\Razor\Views\Shared\_ThumbnailPartial.cshtml.g.cs
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.CustomerSite\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs
+C:\Users\Surface\OneDrive\Desktop\RookieAssignment\RookieAssignment\RookieAssignment.CustomerSite\obj\Debug\net5.0\Razor\Views\Shared\_CommentPartial.cshtml.g.cs
