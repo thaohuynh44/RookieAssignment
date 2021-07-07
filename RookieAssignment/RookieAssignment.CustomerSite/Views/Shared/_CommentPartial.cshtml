@@ -1,9 +1,39 @@
 ﻿@model RookieAssignment.Shared.DTOs.MenuItemCommentDTO
 
-<h2>
-    @Model.Rating
-</h2>
+@*<table width="100%" border="1px solid black" class="my-3">
+    <tr>
+        <td>@Model.PublishedDate.ToString("dd-MM-yyyy")</td>
+    </tr>
+    <tr>
+        <td>@Model.Comment</td>
+    </tr>
+    <tr>
+        <td style="color:#FDCC0D">
+            @for (int i = 0; i < Model.Rating; i++)
+            {
+                <span class="fas fa-star"></span>
+            }
+            @for (int i = Model.Rating; i < 5; i++)
+            {
+                <span class="far fa-star"></span>
+            }
+        </td>
+    </tr>
+</table>*@
 
-<h2>
-    @Model.Comment
-</h2>
+<div class="row border-dark my-3 mx-0" style="border-radius:5px; border:solid;">
+    <div class="col-md-8 col-sm-12">
+        <div><i>@Model.PublishedDate.ToString("dd-MM-yyyy")</i></div>
+        <div>@Model.Comment</div>
+    </div>
+    <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-end" style="color:#FDCC0D">
+        @for (int i = 0; i < Model.Rating; i++)
+        {
+            <span class="fas fa-star"></span>
+        }
+        @for (int i = Model.Rating; i < 5; i++)
+        {
+            <span class="far fa-star"></span>
+        }
+    </div>
+</div>

@@ -76,7 +76,7 @@ namespace RookieAssignment.CustomerSite.Service
             var client = _clientFactory.CreateClient();
 
             HttpResponseMessage response = await client.SendAsync(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
                 return true;
             }

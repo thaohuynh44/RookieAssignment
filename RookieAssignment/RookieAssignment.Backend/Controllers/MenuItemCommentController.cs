@@ -63,8 +63,7 @@ namespace RookieAssignment.Backend.Controllers
             _db.MenuItemComment.Add(menuItemCommentObj);
             await _db.SaveChangesAsync();
 
-            //return CreatedAtAction(nameof(GetMenuItemComment), new { menuItemCommentId = menuItemCommentObj.Id }, menuItemCommentObj);
-            return Created();
+            return NoContent();
         }
 
         [HttpPut("{menuItemCommentId}")]

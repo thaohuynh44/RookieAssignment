@@ -20,7 +20,8 @@ namespace RookieAssignment.CustomerSite.Controllers
         private readonly IMenuItemService _menuItemService;
         private readonly IMenuItemCommentService _menuItemCommentService;
 
-        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, IMenuItemService menuItemService, IMenuItemCommentService menuItemCommentService)
+        public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, 
+               IMenuItemService menuItemService, IMenuItemCommentService menuItemCommentService)
         {
             _logger = logger;
             this._categoryService = categoryService;
@@ -50,6 +51,25 @@ namespace RookieAssignment.CustomerSite.Controllers
             };
 
             return View(detailVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(int menuItemId, int rating, string articleComment)
+        {
+            MenuItemCommentDTO menuItemComment = new MenuItemCommentDTO()
+            {
+                MenuItemId = menuItemId,
+                Rating = rating,
+                PublishedDate = DateTime.Now.Date,
+                Comment = articleComment
+            };
+            bool result = await _menuItemCommentService.CreateAsync(Constant.menuItemCommentAPIPath, menuItemComment);
+            if(result)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
         }
 
 
