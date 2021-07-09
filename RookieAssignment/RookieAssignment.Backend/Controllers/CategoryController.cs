@@ -10,11 +10,14 @@ using RookieAssignment.Shared;
 using RookieAssignment.Shared.DTOs;
 using RookieAssignment.Backend.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace RookieAssignment.Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(LocalApi.PolicyName)]
     public class CategoryController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
@@ -27,6 +30,7 @@ namespace RookieAssignment.Backend.Controllers
         }
 
         [HttpGet]
+        [Authorize("ADMIN_ROLE_POLICY")]
         public async Task<IActionResult> GetAllCategories()
         {
             var objList = await _db.Category.ToListAsync();

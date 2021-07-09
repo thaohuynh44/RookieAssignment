@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace RookieAssignment.Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(LocalApi.PolicyName)]
     public class MenuItemCommentController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
